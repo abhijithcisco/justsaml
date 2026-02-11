@@ -11,6 +11,12 @@ The simplest SAML Identity Provider (IdP) for lab and testing purposes.
 - **Zero database** — everything lives in config
 - **SP-initiated & IdP-initiated SSO**
 
+## Prerequisites
+
+- **Node.js** (v18 or later) — [Download from nodejs.org](https://nodejs.org/)
+  - npm comes bundled with Node.js, no separate install needed
+  - Verify installation: `node -v && npm -v`
+
 ## Quick Start
 
 ```bash

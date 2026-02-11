@@ -1,0 +1,26 @@
+{
+  "name": "justsaml",
+  "version": "1.0.0",
+  "description": "The simplest SAML IdP for lab purposes",
+  "main": "dist/index.js",
+  "bin": {
+    "justsaml": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js start",
+    "init-certs": "node dist/cli.js init"
+  },
+  "keywords": ["saml", "idp", "identity-provider", "lab", "testing"],
+  "license": "MIT",
+  "dependencies": {
+    "selfsigned": "^2.4.1",
+    "xml-crypto": "^6.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.3.3"
+  }
+}

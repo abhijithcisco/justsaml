@@ -1,0 +1,40 @@
+{
+  "idp": {
+    "entityId": "https://192.168.1.26:8443/metadata",
+    "signingCert": "./certs/idp.crt",
+    "signingKey": "./certs/idp.key",
+    "nameIdFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+  },
+  "server": {
+    "port": 8443,
+    "tls": {
+      "cert": "./certs/idp.crt",
+      "key": "./certs/idp.key"
+    }
+  },
+  "users": [
+    {
+      "username": "alice",
+      "password": "alice",
+      "email": "alice@example.com",
+      "attributes": {
+        "role": "admin"
+      }
+    },
+    {
+      "username": "bob",
+      "password": "bob",
+      "email": "bob@example.com",
+      "attributes": {
+        "role": "user"
+      }
+    }
+  ],
+  "serviceProviders": [
+    {
+      "entityId": "https://192.168.1.100/saml/sp/metadata/saml",
+      "acsUrl": "https://192.168.1.100/+CSCOE+/saml/sp/acs?tgname=saml",
+      "allowUnsolicited": true
+    }
+  ]
+}

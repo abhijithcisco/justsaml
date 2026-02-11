@@ -23,6 +23,7 @@ export interface IdpConfig {
 
 export interface ServerConfig {
   port: number;
+  baseUrl: string;
   tls: {
     cert: string;
     key: string;
@@ -46,6 +47,7 @@ const DEFAULT_CONFIG: AppConfig = {
   },
   server: {
     port: 8443,
+    baseUrl: "https://localhost:8443",
     tls: {
       cert: "./certs/server.crt",
       key: "./certs/server.key",

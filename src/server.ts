@@ -42,7 +42,7 @@ export function createRequestHandler(config: AppConfig): (req: http.IncomingMess
   const metadataXml = generateMetadataXml(config);
 
   const handler = async (req: http.IncomingMessage, res: http.ServerResponse) => {
-    const url = new URL(req.url || "/", `https://localhost:${config.server.port}`);
+    const url = new URL(req.url || "/", config.server.baseUrl);
     const method = req.method?.toUpperCase() || "GET";
 
     try {

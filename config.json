@@ -7,6 +7,7 @@
   },
   "server": {
     "port": 8443,
+    "baseUrl": "https://192.168.1.26:8443",
     "tls": {
       "cert": "./certs/idp.crt",
       "key": "./certs/idp.key"

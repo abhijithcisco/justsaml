@@ -26,14 +26,16 @@ npm install
 # Build
 npm run build
 
-# Generate certs + default config
+# Generate self-signed certs + default config (optional — see note below)
 npm run init-certs
 
 # Start the IdP
 npm start
 ```
 
-The server starts at **https://localhost:8443**.
+The server starts at the `baseUrl` configured in `config.json` (default: **https://localhost:8443**).
+
+> **Tip:** `npm run init-certs` is only needed to generate self-signed certificates and a default `config.json`. If you already have your own certificates and a manually created `config.json`, you can skip it and go straight to `npm start`.
 
 ## Endpoints
 
@@ -59,6 +61,7 @@ Edit `config.json` after running `init`:
   },
   "server": {
     "port": 8443,
+    "baseUrl": "https://localhost:8443",
     "tls": {
       "cert": "./certs/server.crt",
       "key": "./certs/server.key"
@@ -82,12 +85,14 @@ Edit `config.json` after running `init`:
 }
 ```
 
+> **Note:** `baseUrl` defaults to `https://localhost:8443`. Change it to your machine's IP or hostname (e.g. `https://192.168.1.26:8443`) if the IdP needs to be reachable from other devices on the network. Update `idp.entityId` accordingly.
+
 ## Integrating with a Service Provider
 
-1. Point your SP's IdP metadata URL to `https://localhost:8443/metadata`
+1. Point your SP's IdP metadata URL to `<baseUrl>/metadata`
 2. Or manually configure:
-   - **SSO URL**: `https://localhost:8443/sso`
-   - **Entity ID**: `https://localhost:8443/metadata`
+   - **SSO URL**: `<baseUrl>/sso`
+   - **Entity ID**: `<baseUrl>/metadata`
    - **Certificate**: contents of `certs/idp.crt`
 3. Add your SP's entity ID and ACS URL to `config.json`
 4. Restart JustSAML

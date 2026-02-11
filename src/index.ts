@@ -17,8 +17,8 @@ export function startServer(configPath: string): void {
 ╔══════════════════════════════════════════════╗
 ║            JustSAML IdP Running              ║
 ╠══════════════════════════════════════════════╣
-║  URL:      https://localhost:${String(config.server.port).padEnd(16)}║
-║  Metadata: https://localhost:${String(config.server.port).padEnd(1)}/metadata  ║
+║  URL:      ${config.server.baseUrl.padEnd(34)}║
+║  Metadata: ${(config.server.baseUrl + "/metadata").padEnd(34)}║
 ║  Users:    ${String(config.users.length).padEnd(34)}║
 ║  SPs:      ${String(config.serviceProviders.length).padEnd(34)}║
 ╚══════════════════════════════════════════════╝

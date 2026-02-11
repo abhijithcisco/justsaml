@@ -8,7 +8,7 @@ export function generateMetadataXml(config: AppConfig): string {
     .replace(/-----END CERTIFICATE-----/g, "")
     .replace(/\r?\n/g, "");
 
-  const ssoUrl = `https://localhost:${config.server.port}/sso`;
+  const ssoUrl = `${config.server.baseUrl}/sso`;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
